@@ -1,0 +1,51 @@
+Derek Boytim
+CSE 674
+Lab 2
+
+	For this lab I decided to implement a k-nearest neighbors classifier and a naive Bayes classifier. The kNN classifier is the simpler of the two and uses vector2 for its training data and testing data sets since all elements in vector2 contain a frequency value for each of the words in the word-list. The naive Bayes classifier uses vector1 since it only cares about words from the word-list with non-zero frequency values.
+	The kNN classifier has to build a large model for classifying each article. Due to the sheer size of the article database (vector2) and due to the kNN algorithm, the time required to build a model is very long. To build a model I compute the Euclidian distances between the article to be classified and each article in the training data set (referred to as sample data in the code). Articles in the training data set which do not contain any labels are ignored; they provide no useful information. The time to calculate these distances is dependent on the number of articles in the training data set and the number of words in the word-list. Once a distance is computed, the distance and the index of the corresponding article in the training data set are entered into a map<double, int>. The map is implemented by a binary tree so all entries are sorted by distance (double value), lower to higher, and lookup time is constant. After all distances have been computed I can classify the article.
+	Only articles without a label are classified, however, the algorithm can be easily modified to classify these articles as well. As for classifying a single article, the first k elements in the map<double, int> become the k nearest neighbors. For each of these k elements I put all of their labels into a map<string, int>, where the integer corresponds to the number of times the label (string) has been seen. I then find the label with the largest number of hits and this becomes the label for article I am classifying. If there is a tie between two or more labels the label(s) from the next nearest neighbor is added to the map<string, int> and the process of finding the label with the most hits is repeated. 
+	Since this classifier uses only articles with labels for the training data and only classifies articles without labels the training data set and the testing data set are disjoint. Thus it is possible to invoke the algorithm with the training data set as 100% of the vector. The downside to this is that the algorithm will run very slowly. During testing I used only 20% of the vector as the training data. I found that this classifier works very well with a percentage of proper classification of about 70%-80%.
+	The naive Bayes classifier has much greater performance than the kNN classifier. This algorithm begins by building a database of labels and their associated words using the training data. As with the kNN classifier, articles that do not contain labels are ignored. The algorithm also keeps track of the total number of distinct labels, the number of times each word appeared for each label and the total number of words. This data is used to calculate probabilities so that Bayes? theorem can be applied.
+	To classify an article I apply Bayes theorem. 
+
+	P(L|W1?Wn) = P(L) * Product for i=1 to n of P(Wi|L)
+
+	As with the kNN classifier only articles that do not contain a label are classified and the algorithm can be easily modified to classify these articles as well. The probability of the label L is given by the number of times L appeared in the training data divided by the total number of labels. The probability of Wi given L is given by the number of times Wi appeared in articles with label L divided by the total number of words. Using these values the algorithm computes P(L|W1?Wn) for each label in the database; W1?.Wn are given by the article to be classified. The label with the largest probability is assigned to this article.
+	As with the kNN classifier the training data and test data are disjoint sets. Due to this, the classifier can be invoked with 100% of the vector as the training data. Although the naïve Bayes classifier is much faster than the kNN classifier the probability of correctly classifying an article is much lower, about 40%-50%. I believe however that this can be greatly improved by improving the quality of the word-list which is produced during preprocessing.
+	The function definitions and the test values for the classifiers are as follows:
+
+K Neareset Neighbors:
+
+void kNClassifyEntries (Vector2& vec2, double sStart, double sEnd, double tStart, double tEnd, int k)
+
+Tested with:
+
+	vec2 = vector2 created by executing preProcessor
+	sStart = 0.0 - Sample Start (Training data beginning)
+	sEnd = 0.2   - Sample End (Training data end)
+	tStart = 0.0 - Test Start (Test data beginning)
+	tEnd = 0.1   - Test End (Test data end)
+	k = 3        - Number of Neighbors
+
+Naive Bayes Classifier
+
+	void nBCreateLabelWordMap (Vector1& vec1, double start, double end)
+	
+Tested with:
+
+	vec1 = vector1 created by executing preprocessor
+	start = 0.5
+	end = 1.0
+
+	void nBClassifyEntries (Vector1& vec1, double start, double end)
+
+Tested with:
+
+	vec1 = vec1 above = vector1 created by executing preprocessor
+	start = 0.0
+	end = 0.1
+
+These values are also in settings.cfg and the different classifiers can be run by changing the setting value for "runKNearest" and "runNaiveBayes".
+
+	During testing I played with the frequency cutoff values for the word-list. I noticed that increasing the number of words in the word-list had a tendency to cause overfitting. The values that seemed to work the best were 300 for the lower cutoff and 900 for the upper cutoff. The performance of the naive Bayes classifier went down with a larger word-list however the performance of the kNN classifier did not change much. I measured performance by reading about 30 articles that had been classified and determining if the given label fit the article.

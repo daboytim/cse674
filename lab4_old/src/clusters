@@ -1,0 +1,800 @@
+cluster 0
+<1><cocoa>
+<275><cocoa, coffee, tea>
+
+cluster 1
+<2><acq>
+<114><earn>
+<280><earn>
+<155><acq>
+<472><acq>
+<59><ship>
+<379><acq>
+<478><acq>
+
+cluster 2
+<3><earn>
+<34><earn>
+<493><earn>
+
+cluster 3
+<4><acq>
+<16><earn>
+<496><acq>
+<230><acq>
+<347><acq>
+<240><acq>
+<298><acq>
+<440><acq>
+<304><acq>
+<394><acq>
+<436><acq>
+<28><acq>
+<178><earn>
+<386><acq>
+<43><earn>
+<49><ship>
+<1><acq>
+<359><interest>
+<60><earn>
+<256><fx, money>
+<363><earn>
+<497><acq>
+<348><earn>
+<175><acq>
+<190><acq>
+<257><interest>
+<428><earn>
+<458><earn>
+<419><acq>
+<510><grain>
+<47><trade>
+<319><cpi>
+<357><cpi>
+<209><cpi, gnp>
+<227><DATE, FEB, PICS, TOP, bop, gnp>
+<303><feed, meal, oilseed, soy, soybean>
+<307><fx, interest, money>
+<336><fx, interest, money>
+<364><money>
+<179><cpi, gnp>
+<213><cpi>
+<279><earn>
+<333><earn>
+<287><earn>
+<339><earn>
+<351><earn>
+<342><trade>
+<226><earn>
+<295><earn>
+<0><earn>
+<225><interest>
+<121><carcass, livestock>
+<272><alum>
+<274><oil, palm, veg>
+<374><cotton>
+<491><acq>
+<495><acq>
+<273><crude>
+<144><crude>
+<236><crude>
+<353><crude>
+<248><crude>
+<352><crude>
+<349><crude>
+<246><crude>
+<137><acq>
+<306><acq>
+<324><earn>
+<247><fx, money>
+<288><earn>
+<100><money, supply>
+<242><crude>
+<289><money>
+<322><interest>
+<416><reserves>
+<111><money, supply>
+<330><money, supply>
+<198><money, supply>
+<341><fx, interest, money>
+<228><grain, rice>
+<258><trade>
+<425><dlr, grain, wheat, wool>
+<285><money>
+<271><trade>
+<284><reserves>
+<252><jobs>
+<358><jobs>
+<42><coffee>
+<290><coffee>
+<232><coffee>
+<249><coffee>
+<402><coffee>
+<75><coffee>
+<310><feed, meal, tapioca>
+<311><tin>
+<270><DATE, MAR, P, TOPICS>
+<350><earn>
+<18><earn>
+<123><earn>
+<40><earn>
+<130><earn>
+<220><money, supply>
+<128><acq>
+<251><acq>
+<390><earn>
+<356><earn>
+<10><acq>
+<372><acq>
+<305><acq>
+<485><acq>
+<381><earn>
+<0><earn>
+<12><acq, earn>
+<432><bop>
+<422><earn>
+<490><earn>
+<45><acq>
+<56><earn>
+<278><interest>
+<291><earn>
+<453><earn>
+<414><earn>
+<421><earn>
+<301><earn>
+<329><acq>
+<325><acq>
+<29><housing>
+<277><earn>
+<54><earn>
+<254><grain, wheat>
+
+cluster 4
+<5><barley, corn, grain, oat, sorghum, wheat>
+<17><earn>
+<139><earn>
+<383><acq>
+<15><acq>
+
+cluster 5
+<6><corn, grain, lin, linseed, oil, oilseed, sorghum, soy, soybean, sun, sunseed, veg, wheat>
+<13><earn>
+<0><sugar>
+
+cluster 6
+<7><earn>
+<447><acq>
+<492><acq>
+<376><acq>
+
+cluster 7
+<8><earn>
+
+cluster 8
+<9><earn>
+<129><earn>
+<396><earn>
+<146><earn>
+<23><earn>
+<214><earn>
+<11><earn>
+<24><earn>
+<37><earn>
+<93><earn>
+<160><earn>
+<164><earn>
+<299><earn>
+
+cluster 9
+<14><earn>
+
+cluster 10
+<19><grain, wheat>
+<103><money, supply>
+<180><grain, wheat>
+
+cluster 11
+<20><acq>
+
+cluster 12
+<21><acq>
+<158><acq>
+<503><acq>
+
+cluster 13
+<22><copper>
+<168><earn>
+<498><acq>
+
+cluster 14
+<25><acq>
+<369><acq>
+<88><earn>
+
+cluster 15
+<26><acq>
+<501><barley, corn, grain, wheat>
+
+cluster 16
+<27><earn>
+<38><earn>
+<65><earn>
+<98><earn>
+<126><earn>
+<138><earn>
+<399><earn>
+
+cluster 17
+<30><money, supply>
+<221><fx, interest, money>
+<66><earn>
+
+cluster 18
+<31><earn>
+
+cluster 19
+<32><acq>
+<55><acq>
+<471><earn>
+<487><earn>
+<373><earn>
+<384><earn>
+
+cluster 20
+<33><earn>
+<117><acq>
+<150><acq>
+<70><earn>
+<460><earn>
+
+cluster 21
+<35><earn>
+
+cluster 22
+<36><earn>
+<86><earn>
+<163><earn>
+<165><earn>
+<461><earn>
+<53><earn>
+<423><earn>
+<87><earn>
+<85><earn>
+<143><earn>
+<152><earn>
+<83><earn>
+<420><earn>
+
+cluster 23
+<39><earn>
+<260><acq>
+
+cluster 24
+<41><earn>
+<202><earn>
+<484><earn>
+<140><earn>
+<151><earn>
+<212><earn>
+<388><earn>
+<410><earn>
+<473><acq, earn>
+
+cluster 25
+<44><acq, ship>
+<71><earn>
+<120><earn>
+<149><acq>
+<265><earn>
+<468><interest>
+<50><earn>
+<89><earn>
+<464><earn>
+<108><earn>
+<509><earn>
+<113><earn>
+<407><earn>
+<405><earn>
+<95><money, supply>
+<508><earnP>
+<512><earn>
+
+cluster 26
+<46><sugar>
+<259><sugar>
+<293><sugar>
+<343><sugar>
+
+cluster 27
+<48><reserves>
+<80><money, supply>
+<153><acq>
+<187><earn>
+<454><earn>
+<169><earn>
+<210><earn>
+
+cluster 28
+<51><earn>
+
+cluster 29
+<52><earn>
+<72><earn>
+<406><earn>
+
+cluster 30
+<57><corn, grain>
+<197><corn, grain, oat>
+<193><corn, grain>
+
+cluster 31
+<58><money, supply>
+<125><acq>
+<331><acq>
+<393><acq>
+<441><acq>
+
+cluster 32
+<61><acq>
+
+cluster 33
+<62><money>
+<171><money>
+<233><interest>
+<181><money>
+<268><earn>
+<250><earn>
+
+cluster 34
+<63><earn>
+<253><grain, wheat>
+<127><crude>
+<191><crude>
+<189><crude>
+<459><crude>
+<511><crude>
+
+cluster 35
+<64><earn>
+<119><acq>
+<133><money, supply>
+<161><acq>
+<380><acq>
+
+cluster 36
+<67><earn>
+<90><earn>
+
+cluster 37
+<68><acq>
+<200><feed, meal, oil, oilseed, soy, soybean, veg>
+<297><oilseed, soybean>
+<235><P, cake, coffee, copra, corn, cotton, grain, meal, oil, palm, palmkernel, plywood, rice, rubber, soy, soybean, sugar, tea, veg, wheat>
+
+cluster 38
+<73><earn>
+<206><earn>
+
+cluster 39
+<74><earn>
+<365><acq>
+
+cluster 40
+<77><money, supply>
+
+cluster 41
+<78><money, supply>
+<94><money, supply>
+<81><money, supply>
+<109><money, supply>
+<411><fx, interest, money>
+
+cluster 42
+<79><acq>
+
+cluster 43
+<82><earn>
+<267><cake, copra, feed, meal>
+
+cluster 44
+<0><acq>
+<115><earn>
+<147><earn>
+<391><earn>
+<116><earn>
+<148><earn>
+
+cluster 45
+<91><earn>
+<199><acq>
+<112><acq>
+<507><acq>
+<361><acq>
+<412><acq>
+<474><acq>
+
+cluster 46
+<92><money, supply>
+
+cluster 47
+<96><acq>
+
+cluster 48
+<97><corn, grain, oat, oilseed, rye, sorghum, soybean, wheat>
+<106><grain, ship>
+<124><grain>
+<229><bean, oilseed, red, soybean>
+
+cluster 49
+<99><money, supply>
+
+cluster 50
+<101><money, supply>
+
+cluster 51
+<102><money, supply>
+
+cluster 52
+<107><trade>
+<243><earn>
+
+cluster 53
+<110><acq>
+<362><acq>
+<266><acq>
+<360><earn>
+<467><acq>
+
+cluster 54
+<118><acq>
+<434><acq>
+<430><acq>
+
+cluster 55
+<122><earn>
+
+cluster 56
+<131><earn>
+<173><earn>
+
+cluster 57
+<132><money, supply>
+
+cluster 58
+<135><acq>
+<345><earn>
+<205><crude>
+<211><crude>
+<489><crude>
+<502><crude>
+
+cluster 59
+<136><grain>
+
+cluster 60
+<141><earn>
+<217><money>
+
+cluster 61
+<142><earn>
+
+cluster 62
+<145><earn>
+<494><earn>
+<176><gas, nat>
+
+cluster 63
+<154><earn>
+<389><acq>
+
+cluster 64
+<156><acq>
+
+cluster 65
+<157><acq>
+
+cluster 66
+<159><earn>
+<477><earn>
+<207><earn>
+
+cluster 67
+<162><acq>
+<424><acq>
+
+cluster 68
+<166><earn>
+<482><earn>
+<426><earn>
+<500><earn>
+<408><DATE, MAR, OPICS, TP, acq>
+
+cluster 69
+<170><earn>
+<184><earn>
+<444><retail>
+<479><earn>
+<450><ipi>
+<403><earn>
+
+cluster 70
+<172><acq>
+
+cluster 71
+<174><acq>
+
+cluster 72
+<177><earn>
+
+cluster 73
+<182><earn>
+
+cluster 74
+<183><earn>
+
+cluster 75
+<186><acq>
+
+cluster 76
+<188><oilseed>
+<486><oilseed>
+
+cluster 77
+<192><earn>
+<321><acq>
+<457><earn>
+
+cluster 78
+<196><earn>
+
+cluster 79
+<201><earn>
+
+cluster 80
+<203><money, supply>
+<475><fx, interest, money>
+
+cluster 81
+<204><earn>
+<452><earn>
+<465><earn>
+
+cluster 82
+<208><earn>
+
+cluster 83
+<215><earn>
+<413><earn>
+
+cluster 84
+<216><money, supply>
+
+cluster 85
+<218><earn>
+<328><earn>
+
+cluster 86
+<219><earn>
+<463><acq>
+<318><earn>
+
+cluster 87
+<222><earn>
+<308><earn>
+
+cluster 88
+<223><earn>
+
+cluster 89
+<224><earn>
+<382><acq>
+<505><acq>
+
+cluster 90
+<231><acq>
+
+cluster 91
+<234><earn>
+<338><trade>
+
+cluster 92
+<237><crude>
+
+cluster 93
+<238><earn>
+
+cluster 94
+<239><acq>
+<323><reserves>
+<282><acq>
+
+cluster 95
+<241><grain, wheat>
+<281><ship>
+<476><earn>
+<292><earn>
+
+cluster 96
+<245><ship>
+
+cluster 97
+<255><earn>
+<286><earn>
+
+cluster 98
+<261><earn>
+
+cluster 99
+<262><earn>
+
+cluster 100
+<263><acq>
+
+cluster 101
+<264><earn>
+<344><earn>
+
+cluster 102
+<269><earn>
+<371><acq>
+
+cluster 103
+<276><acq>
+
+cluster 104
+<283><reserves>
+
+cluster 105
+<294><earn>
+
+cluster 106
+<296><fx, interest, money>
+<397><earn>
+
+cluster 107
+<300><earn>
+
+cluster 108
+<302><acq>
+<442><acq>
+
+cluster 109
+<309><gold, metal, platinum, strategic>
+<437><acq>
+<462><gold>
+<314><gold>
+<448><acq, gold, platinum>
+<488><gold, silver>
+<506><earn>
+
+cluster 110
+<312><bop, trade>
+
+cluster 111
+<313><groundnut, oil, oilseed, palm, rapeseed, soy, soybean, sunseed, veg>
+
+cluster 112
+<315><acq>
+<449><earn>
+
+cluster 113
+<316><acq>
+
+cluster 114
+<320><oil, palm, rape, veg>
+<332><oil, palm, veg>
+
+cluster 115
+<326><acq>
+
+cluster 116
+<327><citruspulp, corn, cornglutenfeed, feed, grain, meal, oilseed, rape, rapeseed, soy, tapioca>
+
+cluster 117
+<334><acq>
+
+cluster 118
+<335><grain>
+
+cluster 119
+<337><earn>
+
+cluster 120
+<340><acq>
+
+cluster 121
+<346><metal, strategic>
+
+cluster 122
+<354><trade>
+<429><earn>
+
+cluster 123
+<355><earn>
+
+cluster 124
+<366><acq>
+<401><acq>
+
+cluster 125
+<367><earn>
+<385><earn>
+
+cluster 126
+<368><crude, ship>
+<469><ship>
+
+cluster 127
+<370><acq>
+<470><earn>
+
+cluster 128
+<375><acq>
+<415><acq>
+<427><acq>
+<504><acq>
+
+cluster 129
+<377><alum>
+<446><alum>
+
+cluster 130
+<378><earn>
+
+cluster 131
+<387><acq>
+
+cluster 132
+<392><earn>
+
+cluster 133
+<395><barley, corn, grain, wheat>
+
+cluster 134
+<398><acq>
+
+cluster 135
+<400><acq>
+
+cluster 136
+<409><earn>
+
+cluster 137
+<417><grain, oat>
+
+cluster 138
+<431><earn>
+
+cluster 139
+<433><earn>
+
+cluster 140
+<435><earn>
+
+cluster 141
+<438><earn>
+
+cluster 142
+<439><earn>
+
+cluster 143
+<443><cattle, l, livestock>
+
+cluster 144
+<455><earn>
+
+cluster 145
+<456><earn>
+
+cluster 146
+<466><earn>
+
+cluster 147
+<480><earn>
+
+cluster 148
+<483><earn>
+
+cluster 149
+<499><acq>
+

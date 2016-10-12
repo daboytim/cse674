@@ -1,0 +1,6 @@
+Derek Boytim
+CSE 674
+Lab 2
+
+	For this lab I decided to implement a k-nearest neighbors classifier and a naive Bayes classifier. The kNN classifier is the simpler of the two. 
+	The kNN classifier does not require any time to build a model for classification because all classification is done on a article by article basis. However, due to the sheer size of the article database (vector2) and to the kNN algorithem, the kNN classifier is very slow. This algorithem is three for-loops deep. The outer most loop is controlled by the number of articles to classify; only articles without a label are classified, however, the algorithm can be easily modified to classify these articles as well. As for classifying a simgle article I compute the euclidian distance between the article to be classified and each article in the training data set; refered to as sample data in the code. Atricles in the traing data set which to not contain any labels are ignored; they provide no usefull information. The time to calculate these distances is dependent on the number of articles in the training data set and the number of words in the word-list. Each distance and the index of the corresponding te

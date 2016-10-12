@@ -1,0 +1,27 @@
+Compile with "preProcessor.cpp", "article.h", "featureVector.h" and "listIO.h" in the same directory usign the command "g++ -o <outputFile> preProcessor.cpp".
+
+The program is designed to run without command line input. The default directory to read reuters from is "/home/0/srini/WWW/674/public/reuters/". Default settings can be changed by declaring a file named "settings.cfg" and liststing settings, one per line, in the form: 
+
+	 <setting name>="<value>"
+
+This file must contain a newline charcter after the last setting. Default settings are as follows:
+
+	int upperFreqCutoff = 900
+	int lowerFreqCutoff = 110
+	int loadStopWords = 1
+	int loadIgnoreWords = 0
+	int makeVector1 = 1
+	int makeVector2 = 0
+	int writeVector1 = 1
+	int writeVector2 = 1
+	int writeIgnoreWords = 1
+	int writeWordList = 1
+	int askForFreqCutoff = 1
+	int numberOfBins = 100
+    	int displayHistogram = 0
+	int transactionBegin = 0
+	int transactionEnd = 0
+
+This program can read stop words from a file named "stopWords.lst" and a custom list of words to ignore from a file named "ignoreWords.lst". Feature vectors reside in memory and can be written to files named "vector1" and "vector2". Two classifiers exist, a naive Bayes classifier and a k-nearest neighbors classifier. The naive Bayes classifier uses vector1 and the kNN classifier uses vector2.
+
+Settings transactionBegin and transactionEnd have been added for lab4. These specify the index in vector1 where the transactions are to begin and end. The transactions are the testing data that is fed into the Apriori program. Setting transactionEnd to 0 will cause all entries in vector1 after transactionBegin to becomt transactions. Transactions are output to a file named vector1trans.

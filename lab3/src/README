@@ -1,0 +1,36 @@
+Compile with "preProcessor.cpp", "article.h", "featureVector.h", "listIO.h", "naiveBayes.h" and "knearest.h" in the same directory usign the command "g++ -o <outputFile> preProcessor.cpp".
+
+The program is designed to run without command line input. The default directory to read reuters from is "/home/0/srini/WWW/674/public/reuters/". Default settings can be changed by declaring a file named "settings.cfg" and liststing settings, one per line, in the form: 
+
+	 <setting name>="<value>"
+
+This file must contain a newline charcter after the last setting. Default settings are as follows:
+
+	int upperFreqCutoff = 900
+	int lowerFreqCutoff = 110
+	int loadStopWords = 1
+	int loadIgnoreWords = 0
+	int makeVector1 = 1
+	int makeVector2 = 0
+	int writeVector1 = 1
+	int writeVector2 = 1
+	int writeIgnoreWords = 1
+	int writeWordList = 1
+	int askForFreqCutoff = 1
+	int numberOfBins = 100
+	int runNaiveBayes = 1
+    	int runKNearest = 0
+    	int kNeighbors = 3
+    	int displayHistogram = 0
+	double nbss = 0.5  //        nb/kn              s/t          s/e
+    	double nbse = 1.0  //naiveBayes/kNearest   sample/test   start/end
+    	double nbts = 0.0  //...
+    	double nbte = 0.5  //nbte=naiveBayesTestEnd
+    	double knss = 0.5
+    	double knse = 1.0
+    	double knts = 0.0
+    	double knte = 0.5
+	string reuterDir = "/home/0/srini/WWW/674/public/reuters/"
+
+The double value settings are used to declare which portion of the vector to use as training data (sample) and testing data (test). These values correspond to percentages of the vector (0.5 = %50).
+This program can read stop words from a file named "stopWords.lst" and a custom list of words to ignore from a file named "ignoreWords.lst". Feature vectors reside in memory and can be written to files named "vector1" and "vector2". Two classifiers exist, a naive Bayes classifier and a k-nearest neighbors classifier. The naive Bayes classifier uses vector1 and the kNN classifier uses vector2.

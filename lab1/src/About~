@@ -1,0 +1,51 @@
+Derek Boytim
+cse 674
+Lab1
+
+The program begins by reading settings form a file called "settings.cfg", if this file does not exist then no settings are updated and all settings keep their default value. The settings and their default values are as follows:
+
+	int loadStopWords = 1
+	int loadIgnoreWords = 0
+	int makeVector1 = 1
+	int makeVector2 = 0
+	int writeIgnoreWords = 1
+	int writeWordList = 1
+	int upperFreqCutoff = 1000
+	int lowerFreqCutoff = 100
+	string reuterDir = "/home/0/srini/WWW/674/public/reuters/"
+	int askForFreqCutoff = 1
+	int numberOfBins = 100
+
+The expected format of a setting in "settings.cfg" is:
+
+	 <setting name>="<value>"
+
+ All settings do not need to be listed nor does the order matter. Each setting must be on its own line. The program then reads stop-words from a file called "stopWords.lst". These words will automatically be ignored during parsing.
+	Next, if the setting is explicitly set using the settings.cfg file, words that the user has indicated that the parser should ignore (words that were thrown out from a previous time running the program) are read from a file called "ignoreWords.lst", this file is usually created from a previous run of the program. 
+	Next, the program begins parsing files in the dirctory pointed by "dir" one by one. Each article in the file becomes an object of type "Article" defined in "article.h". During parsing stop-words and ignore-words are automatically ignored and not added to the Article object or the global word-list. Furthermore only words consisting entirely of aplha characters are kept. Words that do not contain a vowel are thrown out. Words from the body of the article are stored in the Article object and in a global map<string,int> called "wordList". This list is used to process the words as a hole and to determine words that can be ignored. After all reuter files have been parsed the program begins processing the word-list. 
+	During processing, the program creates a histogram of the frequency of the words, prints the total number of words, prints the value of highest frequency word and prints the value of the highest frequency bin from the histogram. The user is then asked for values for the upper and lower frequency cutoffs. These frequencies correspond to the frequencies of words, not bins. Words with frequencies outside this range are added to the set<string> called "ignoreWords". All words in "ignoreWords" are then removed from the master list of words "wordList" and also written to ignoreWords.lst for use the next time the program is run. The master list of words is then written to a file named "importantWords.lst".
+	The data is now ready to be displayed as a vector. The first vector is composed as follows: 
+
+	<article id #><word(# of occurances),...><class labels>
+	<article id #><word(# of occurances),...><class labels>
+	.
+	.
+	.
+ 
+Only words that are in the Article object for the corresponding article and master list of words are writtin to this vector. The second vector is composed as follows:
+	
+	<article id #><# of occurances of word,...><class labels>
+	<article id #><# of occurances of word,...><class labels>
+	.
+	.
+	.
+
+In this vector there is an entry for each word in the master list of words, so some entries will be 0. These vectors are written to fils named vector1 and vector2.
+
+Things I tried but did not finish/get working correctly:
+	-I tried to remove prefixes and suffixes from words. These pefixes and suffixes are defined in a string[].
+	-I tried to determine if a word was a proper noun and if it was not a proper noun make it lower case.
+
+Know errors:
+	-Some topics are not correct. For some articles the program reads past the end of the TOPICS tab and adds these words as topics.
+	-In vector1 the list of words may begin with ", " if the first word in the article is not in the master list of words.

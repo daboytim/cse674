@@ -1,0 +1,7 @@
+Compile with "preProcessrp.cpp" and "article.h" int the same directory
+usign the command "g++ -o <outputFile> preProcessor.cpp".
+
+The program is designed to run without command line input. The default 
+directory to read reuters from is "/home/0/srini/WWW/674/public/reuters/".
+This can be changed by altering the golbal variable "dir". Feature vectors are 
+output to files named "vector1" and "vector2". Stop-words are listed in a file named "stopWords.lst" and loaded before parsing. 

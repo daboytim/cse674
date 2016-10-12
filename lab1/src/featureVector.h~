@@ -1,0 +1,127 @@
+//Derek Boytim
+//CSE 674
+//Lab 1
+//1-21-2012
+//featureVector.h
+
+#ifndef FEATURE_VECTOR_H
+#define FEATURE_VECTOR_H
+
+#include <iostream>
+#include <stdio.h>
+#include <map>
+#include <vector>
+#include <string>
+
+#include "article.h"
+
+using namespace std;
+
+void createVector1 (map<string,int>* wordList, vector<Article>* articles) {
+    cout <<"writing vector 1...";
+    FILE* v1f;
+    v1f = fopen("vector1", "w");
+    if (v1f == NULL) {
+	return;
+    }
+
+    int i, tmp, rtnval;
+    int count;
+    string word;
+    for (i=0; i<*articles.size(); i++) {
+	tmp = *articles[i].getId();
+	//cout <<"id= " <<tmp <<endl;
+	fprintf (v1f, "<%d><", tmp);
+	//list all words and #occurrences of each
+	*articles[i].setWordIteratorBegin();
+	//cout <<"set iterator\n";
+	//cout <<"article " <<i <<": " <<articles[i].size() <<endl;
+	rtnval = *articles[i].getNextEntry (&word, &count);
+	//cout <<rtnval <<"-" <<word <<":" <<count <<endl;
+	if(rtnval == 0) {
+	    if (*wordList.find(word) != *wordList.end()) {
+		fprintf (v1f, "%s(%d)", word.c_str(), count);
+	    }
+	    while (true) {
+		rtnval = *articles[i].getNextEntry (&word, &count);
+		//cout <<word <<":"<<count <<endl;
+		if(rtnval != 0) {
+		    break;
+		}
+		if (*wordList.find(word) != *wordList.end()) {
+		    fprintf (v1f, ", %s(%d)", word.c_str(), count);
+		}
+	    }
+	}
+	fprintf (v1f, "%s", "><");
+	//cout <<"writing labels\n";
+	*articles[i].setLabelIteratorBegin();
+	rtnval = *articles[i].getNextLabel (&word);
+	//cout <<rtnval <<":"<<word <<endl;
+	if(rtnval == 0) {
+	    fprintf (v1f, "%s", word.c_str());
+	    while (rtnval == 0) {
+		rtnval = *articles[i].getNextLabel (&word);
+		//cout <<rtnval <<word <<endl;
+		if(rtnval != 0) {
+		    break;
+		}
+		fprintf (v1f, ", %s", word.c_str());
+	    }
+	}
+	//cout <<"got labels\n";
+	fprintf (v1f, "%s\n", ">");
+    }
+    fclose(v1f);
+    cout <<"done\n";
+}
+
+/**********************************************/
+
+void createVector2 (map<string,int>* wordList, vector<Article>* articles) {
+    cout <<"writing vector 2...";
+    FILE* v2f;
+    v2f = fopen("vector2", "w");
+    if (v2f == NULL) {
+	cout <<"failed\n";
+	return;
+    }
+
+    map<string,int>::iterator begin, end;
+    string word;
+    int i, rtnval;
+    for (i=0; i<*articles.size(); i++) {
+	fprintf(v2f, "<%d><", *articles[i].getId());
+	
+	begin = *wordList.begin();
+	end = *wordList.end();
+	//cout <<"got iterators\n";
+	word = (*begin).first;
+	//cout <<strWord <<endl;
+	fprintf(v2f, "%d", *articles[i].occurrences(word));
+	
+	for (begin++ ; begin != end; begin++) {
+	    word = (*begin).first;
+	    fprintf(v2f, ", %d", *articles[i].occurrences(word));
+	}
+	fprintf (v2f, "%s", "><");
+
+	*articles[i].setLabelIteratorBegin();
+	rtnval = *articles[i].getNextLabel (&word);
+	if(rtnval == 0) {
+	    fprintf (v2f, "%s", word.c_str());
+	    while (rtnval == 0) {
+		rtnval = *articles[i].getNextLabel (&word);
+		if(rtnval != 0) {
+		    break;
+		}
+		fprintf (v2f, ", %s", word.c_str());
+	    }
+	}	
+	fprintf(v2f, "%s\n", ">");
+    }
+    fclose(v2f);
+    cout <<"done\n";
+}
+
+#endif

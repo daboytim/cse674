@@ -1,0 +1,7 @@
+runAgglomerative="1"
+runKMeans="1"
+numberOfClusters="150"
+similarityMode="3"
+numArticles="500"
+printClusters="0"
+writeClusters="1"

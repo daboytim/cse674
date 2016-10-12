@@ -1,0 +1,5 @@
+Compile with "preProcessrp.cpp", "article.h" and "featureVector.h" in the same directory usign the command "g++ -o <outputFile> preProcessor.cpp".
+
+The program is designed to run without command line input. The default directory to read reuters from is "/home/0/srini/WWW/674/public/reuters/". Default settings can be changed by declaring a file named "settings.cfg" and liststing settings, one per line, in the form: 
+	 <setting name>="<value>"
+This program can read stop words from a file named "stopWords.lst" and a custom list of words to ignore from a file named "ignoreWords.lst". Feature vectors are output to files named "vector1" and "vector2".

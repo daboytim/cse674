@@ -1,0 +1,6 @@
+preProcessor : preProcessor.o
+	g++ -o preProcessor preProcessor.o
+
+preProcessor.o : article.h preProcessor.cpp
+	g++ -c preProcessor.cpp
+

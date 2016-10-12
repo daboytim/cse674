@@ -1,0 +1,199 @@
+//Derek Boytim
+//CSE 674
+//Lab 1
+//1-21-2012
+//featureVector.h
+//updated 1-29-2012 for lab2
+//   -added support for feature vectors to reside in memory
+//   -fixed file output of Vector1: (<1234><, word(3)><>) no more ", "
+
+#ifndef FEATURE_VECTOR_H
+#define FEATURE_VECTOR_H
+
+#include <iostream>
+#include <stdio.h>
+#include <map>
+#include <vector>
+#include <string>
+
+#include "article.h"
+
+using namespace std;
+
+/**********************************************/
+
+class V1Entry {
+public:
+    int articleId;
+    vector<string> words;
+    vector<int> wordCounts;
+    vector<string> labels;
+};
+
+class Vector1 {
+public:
+    vector<V1Entry> entries;
+    int write();
+};
+
+/**********************************************/
+
+class V2Entry {
+public:
+    int articleId;
+    vector<int> wordCounts;
+    vector<string> labels;
+};
+
+class Vector2 {
+public:
+    vector<V2Entry> entries;
+    int write();
+};
+
+/**********************************************/
+
+Vector1 createVector1 (map<string,int>& wordList, vector<Article>& articles) {
+    cout <<"creating vector1...";
+    Vector1 featureVector;
+    int i, rtnval, count;
+    string word;
+    for (i=0; i<articles.size(); i++) {
+	V1Entry entry;	
+	entry.articleId = articles[i].getId();
+	articles[i].setWordIteratorBegin();
+	rtnval = articles[i].getNextEntry (word, count);
+	while (rtnval == 0) {
+	    if (wordList.find(word) != wordList.end()) {
+		entry.words.insert (entry.words.end(), word);
+		entry.wordCounts.insert (entry.wordCounts.end(), count);
+	    }
+	    rtnval = articles[i].getNextEntry (word, count);
+	}	
+	articles[i].setLabelIteratorBegin();
+	rtnval = articles[i].getNextLabel (word);
+	while (rtnval == 0) {
+	    entry.labels.insert (entry.labels.end(), word);
+	    rtnval = articles[i].getNextLabel (word);
+	}
+	featureVector.entries.insert (featureVector.entries.end(), entry);
+    }
+    cout <<"done\n";
+    return featureVector;
+}
+
+/**********************************************/
+
+Vector2 createVector2 (map<string,int>& wordList, vector<Article>& articles) {
+    cout <<"creting vector2...";
+    Vector2 featureVector;
+    map<string,int>::iterator begin, end;
+    string word;
+    int i, rtnval, count;
+    for (i=0; i<articles.size(); i++) {
+	V2Entry entry;	
+	entry.articleId = articles[i].getId();
+	begin = wordList.begin();
+	end = wordList.end();
+       	for ( ; begin != end; begin++) {
+	    word = (*begin).first;
+	    count = articles[i].occurrences (word);
+	    entry.wordCounts.insert (entry.wordCounts.end(), count);
+	}
+	articles[i].setLabelIteratorBegin();
+	rtnval = articles[i].getNextLabel (word);
+	while (rtnval == 0) {
+	    entry.labels.insert (entry.labels.end(), word);
+	    rtnval = articles[i].getNextLabel (word);
+	}
+	featureVector.entries.insert (featureVector.entries.end(), entry);
+    }
+    cout <<featureVector.entries.size() <<"...done\n";
+    return featureVector;
+}
+
+/**********************************************/
+
+int Vector1::write() {
+    cout <<"writing vector 1...";
+    FILE* v1f;
+    v1f = fopen("vector1", "w");
+    if (v1f == NULL) {
+	return 1;
+    }
+    string word;
+    int i,j,count;
+    for (i=0; i<entries.size(); i++) {
+	V1Entry entry = entries[i];
+	fprintf(v1f, "<%d><", entry.articleId);
+	j=0;
+	if (entry.words.size() > 0) {
+	    word = entry.words[j];
+	    count = entry.wordCounts[j];
+	    fprintf (v1f, "%s(%d)", word.c_str(), count);
+	    for (j++; j<entry.words.size(); j++) {
+		word = entry.words[j];
+		count = entry.wordCounts[j];
+		fprintf (v1f, ", %s(%d)", word.c_str(), count);
+	    }
+	}
+	fprintf (v1f, "%s", "><");
+	j=0;
+	if (entry.labels.size() > 0) {
+	    word = entry.labels[j];
+	    fprintf (v1f, "%s", word.c_str());
+	    for (j++; j<entry.labels.size(); j++) {
+		word = entry.labels[j];
+		fprintf (v1f, ", %s", word.c_str());
+	    }
+	}
+	fprintf (v1f, "%s", ">\n");
+    }
+    fclose(v1f);
+    cout <<"done\n";
+    return 0;
+}
+
+/**********************************************/
+
+int Vector2::write() {
+    cout <<"writing vector 2...";
+    FILE* v2f;
+    v2f = fopen("vector2", "w");
+    if (v2f == NULL) {
+	return 1;
+    }
+    string word;
+    int i,j,count;
+    for (i=0; i<entries.size(); i++) {
+	V2Entry entry = entries[i];
+	fprintf(v2f, "<%d><", entry.articleId);
+	j=0;
+	if (entry.wordCounts.size() > 0) {
+	    count = entry.wordCounts[j];
+	    fprintf (v2f, "%d", count);
+	    for (j++; j<entry.wordCounts.size(); j++) {
+		count = entry.wordCounts[j];
+		fprintf (v2f, ", %d", count);
+	    }
+	}
+	fprintf (v2f, "%s", "><");
+	j=0;
+	if (entry.labels.size() > 0) {
+	    word = entry.labels[j];
+	    fprintf (v2f, "%s", word.c_str());
+	    for (j++; j<entry.labels.size(); j++) {
+		word = entry.labels[j];
+		fprintf (v2f, ", %s", word.c_str());
+	    }
+	}
+	fprintf (v2f, "%s", ">\n");
+    }
+    fclose(v2f);
+    cout <<"done\n";
+    return 0;
+}
+
+/**********************************************/
+
+#endif
